@@ -37,17 +37,17 @@
                 (1) Design sophisticating loss functions. (2) Resampling of the training data (2) Intra-class distribution
                 transfer from majority class to minority class.
             </p>
-            <h3>Loss Function</h3>
+            <h3>Cost-sensitive learning</h3>
             <p class="text">
-                text to write
+                For an imbalanced dataset, the numbers of samples in each class are different. However, our learning models do not learn equally from every sample. Therefore, we can assign different weights for different samples to decide how much information we want to learn from each sample. On one hand, we can assign class-wise weights for different classes, so that our model learns equally from every class to solve the class-imbalance issue. Besides naively assigning class-wise weights inversely proportional to sample numbers, Cui et al [1] reweight class based on the effective number of samples. On the other hand, sample-wise reweighting could be adopted to assign different weights to each sample, such as Focal loss [2]. The combination of the class-wise and sample-wise methods is a natural extension, such as Influence-balanced loss [3].
             </p>
             <h3>Resampling</h3>
             <p class="text">
-                text to write
+                There are also two kinds of sampling methods to mitigate bias. Oversampling means sampling more times for minority data, but the problem is naively making copies of minority data leads to overfitting easily. Undersampling means dropping some majority data from training data. But it may discard some important samples [4]. Basically, the goals of these two methods and the reweighting method are the same, while oversampling and undersampling are implicitly reweighting.
             </p>
-            <h3>Intra-class Diversity Transfer</h3>
+            <h3>GAN-based data augmentation</h3>
             <p class="text">
-                text to write
+                With the progress of GAN models, we can generate realistic images which contain diverse information, and we can manually control the attributes. In this way, GANs can be used as a data augmentation technique for generating a balanced dataset. Then hopefully a fair classifier can be trained based on original data and balanced synthetic data [5]. However, one shortage of existing GAN-based methods is that they need manually select the protected attribute. However, we cannot always access the attribute label and it is hard to determine which attribute to protect if there are lots of attributes.
             </p>
           </div>
         </div>
@@ -59,21 +59,27 @@
               <ol class="publication C-list">
               <li>
                 <p class="text-small-margin">
-                  Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-                  augue. Curabitur ullamcorper ultricies nisi.
+                  Cui, Yin and Jia, Menglin and Lin, Tsung-Yi and Song, Yang and Belongie, Serge. “Class-Balanced Loss Based on Effective Number of Samples”. In CVPR 2019.
                 </p>
               </li>
               <li>
                 <p class="text-small-margin">
-                  Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
-                  condimentum rhoncus, sem quam semper libero, <a target="_blank" href="javascript:void(0)">sit amet adipiscing sem neque sed ipsum</a>. Nam quam nunc, blandit
-                  vel, luctus pulvinar, hendrerit id, lorem.
+                  Tsung-Yi, Lin and Priya, Goyal and Ross, Girshick and Kaiming, He and Piotr, Dollár. “Focal Loss for Dense Object Detection”. In ICCV 2017.
                 </p>
               </li>
               <li>
                 <p class="text-small-margin">
-                  Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del
-                  coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
+                  Park, Seulki and Lim, Jongin and Jeon, Younghan and Choi, Jin Young. “Influence-Balanced Loss for Imbalanced Visual Classification”. In ICCV 2021.
+                </p>
+              </li>
+              <li>
+                <p class="text-small-margin">
+                  Weiss, G. M., McCarthy, K., & Zabar, B. (2007). Cost-sensitive learning vs. sampling: Which is best for handling unbalanced classes with unequal error costs?. DMIN, 2007.
+                </p>
+              </li>
+              <li>
+                <p class="text-small-margin">
+                  Ramaswamy, V. V., Kim, S. S., & Russakovsky, O. Fair attribute classification through latent space de-biasing. In CVPR 2021.
                 </p>
               </li>
             </ol>
