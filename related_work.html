@@ -31,22 +31,26 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Solving the Class-Imbalanced Training Data Problem</h2>
             <hr>
-            <p class="text">
+            <p class="text"><font size=4>
                 How to utilize class-imbalanced data to train a fair model has been a popular research problem,
                 which is also known as long-tail image recognition. Existing works can be divided into the following:
                 (1) Design sophisticating loss functions. (2) Resampling of the training data (3) Generate synthetic training images.
+              </font>
             </p>
             <h3>Cost-sensitive learning</h3>
-            <p class="text">
+            <p class="text"><font size=4>
                 For an imbalanced dataset, the numbers of samples in each class are different. However, our learning models do not learn equally from every sample. Therefore, we can assign different weights for different samples to decide how much information we want to learn from each sample. On one hand, we can assign class-wise weights for different classes, so that our model learns equally from every class to solve the class-imbalance issue. Besides naively assigning class-wise weights inversely proportional to sample numbers, Cui et al [1] reweight class based on the effective number of samples. On the other hand, sample-wise reweighting could be adopted to assign different weights to each sample, such as Focal loss [2]. The combination of the class-wise and sample-wise methods is a natural extension, such as Influence-balanced loss [3].
+              </font>
             </p>
             <h3>Resampling</h3>
-            <p class="text">
+            <p class="text"><font size=4>
                 There are also two kinds of sampling methods to mitigate bias. Oversampling means sampling more times for minority data, but the problem is naively making copies of minority data leads to overfitting easily. Undersampling means dropping some majority data from training data. But it may discard some important samples [4]. Basically, the goals of these two methods and the reweighting method are the same, while oversampling and undersampling are implicitly reweighting.
+              </font>
             </p>
             <h3>GAN-based data augmentation</h3>
-            <p class="text">
+            <p class="text"><font size=4>
                 With the progress of GAN models, we can generate realistic images which contain diverse information, and we can manually control the attributes. In this way, GANs can be used as a data augmentation technique for generating a balanced dataset. Then hopefully a fair classifier can be trained based on original data and balanced synthetic data [5]. However, one shortage of existing GAN-based methods is that they need manually select the protected attribute. However, we cannot always access the attribute label and it is hard to determine which attribute to protect if there are lots of attributes.
+              </font>
             </p>
           </div>
         </div>

@@ -31,16 +31,17 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Deep Active Learning</h2>
             <hr>
-            <p class="text">
+            <p class="text"><font size=4>
                 One of the limitations of our method is that we need to label lots of images. In the real world, it’s expensive even impossible to label such large amounts of samples. So we try to apply active learning to find the most informative samples to label rather than naively label all the samples.
+              </font>
             </p>
             <div class="flex-item flex-column">
         <img class="image max-width-1000" src="imgs/al.jpg">
         <p class="image-caption">The pipeline of active learning.</p>
       </div>
-            <p class="text">
+            <p class="text"><font size=4>
                 Active learning attempts to maximize the performance of the model by labeling the fewest samples. Suppose that we have an initial labeled dataset and a large unlabeled data pool. Then we can train a model based on the labeled data. And then we will try to select the most useful samples from the unlabeled pool, and send them to Oracle for labeling. The labeled samples will add to labeled dataset for the next loop. We do such steps iteratively until the label budget is run out or the expected performance is achieved. Ideally, we can still the achieve expected performance with a small number of label queries.
-
+              </font>
             </p>
           </div>
         </div>
