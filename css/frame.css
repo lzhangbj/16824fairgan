@@ -344,9 +344,13 @@ hr {
   max-width: 140px;
 }
 
+.max-width-1000 {
+  max-width: 1000px;
+}
+
 ol.publication {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   list-style: none;
   margin: 7px 0 7px 0;
   padding: 0;
@@ -374,7 +378,7 @@ ol.publication.C-list li p {
 }
 
 ol.publication.C-list li p:before {
-  content: "[C"counter(C-counter)"]";
+  content: "["counter(C-counter)"]";
 }
 
 ol.publication.J-list {

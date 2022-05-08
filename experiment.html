@@ -31,107 +31,141 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Task Definition</h2>
             <hr>
-            <p class="text">
-              We aim to train a face ethinicity classification model balanced across all races: White, Black, Asian and Indian. todo
+            <p class="text"><font size=4>
+              We aim to train a face ethnicity classification model balanced across different races, namely White, Black, Asian and Indian. Specifically, our goal is to train a fair classifier based on the imbalanced dataset where the per-class accuracy is roughly the same, and the model achieves competitive performance compared to the model trained on the balanced dataset. 
+              </font>
             </p>
+
 
             <h2 class="add-top-margin">Dataset</h2>
             <hr>
-            <p class="text">
-              We conduct all experiments on FairFace, a face recognition dataset balanced in ethnicity classification.
+            <p class="text"><font size=4>
+              We conduct all experiments on FairFace [1], a face recognition dataset balanced in ethnicity classification. It contains about 80000 training samples for 4 races, namely white, black, Asian and Indian. And we randomly selected around 20% labeled images as the initial training dataset with a bias ratio of 10:1:1:1, which means there are about 10000 white people images and 1000 images for each other race. The test dataset contians about 9000 images which are roughly balanced.
+            </font>
             </p>
-            <ol class="nested">
-              <li>labeled dataset</li>
-              <li>unlabeled dataset
-                <ol class="nested">
-                  <li>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li>
-                  <li>In enim justo, <a target="_blank" href="javascript:void(0)">rhoncus ut, imperdiet a</a>, venenatis vitae, justo.
-                    <ol class="nested">
-                      <li>Li nov lingua franca.</li>
-                      <li>It va esser Occidental.</li>
-                      <li>Existent Europan lingues.</li>
-                    </ol>
-                  </li>
-                  <li>Nullam dictum felis eu pede mollis pretium.</li>
-                </ol>
-              </li>
-              <li></li>
-            </ol>
           </div>
         </div>
         <!--End Text Only-->
-
+    
         <!--Start Text with Centered Image and Table-->
         <div class="flex-row">
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Experiment Results</h2>
             <hr>
-            <p class="text">
-              Todo
-            </p>
-            <p class="text text-center graph-title">
-              This is the title for the bottom image
-            </p>
-            <img class="image center max-width-400 add-top-margin-small" src="img/dummay-img.png">
-            <p class="text">
-              todo
-            </p>
-            <p class="text text-center graph-title">
-              This is the title for the bottom table
+            <p class="text"><font size=4>
+              Suppose that we have a small imbalanced training dataset <b>L</b>. We generate two balanced synthetic dataset <b>M</b> and <b>C</b> by aforementioned image style mixture method and conditional-StyleGAN. In <b>M</b> each class contains 10000 images. For <b>C</b>, we generate 10000 images and 100000 images for each class respectively. And we assign each label for training in two ways, by using the label inserted for Conditional-StyleGAN as the ground truth label and by giving each sample a ground truth label using Oracle/human labeling, respectively.
+            </font>
             </p>
             <div class="custom-table-container center add-top-margin-small">
               <table class="custom-table">
                 <thead>
                   <tr class="bg-color-gray">
-                    <th>Number of</th>
-                    <th class="text-center">Unique Users</th>
-                    <th class="text-center">Smell Reports</th>
-                    <th class="text-center">Interaction Events</th>
+                    <th>Dataset (number of images)</th>
+                    <th class="text-center">White Acc</th>
+                    <th class="text-center">Black Acc</th>
+                    <th class="text-center">Asian Acc</th>
+                    <th class="text-center">Indian Acc</th>
+                    <th class="text-center">Average Acc</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Enthusiasts</td>
-                    <td class="text-center">9.4%</td>
-                    <td class="text-center">50.6%</td>
-                    <td class="text-center">44.8%</td>
+                    <td>L (14k)</td>
+                    <td class="text-center">96.0</td>
+                    <td class="text-center">78.9</td>
+                    <td class="text-center">74.6</td>
+                    <td class="text-center">58.9</td>
+                    <td class="text-center">80.29</td>
                   </tr>
                   <tr class="bg-color-light-gray">
-                    <td>Explorers</td>
-                    <td class="text-center">36.1%</td>
-                    <td class="text-center">37.3%</td>
-                    <td class="text-center">27.3%</td>
+                    <td>L + M (40k)</td>
+                    <td class="text-center">92.3</td>
+                    <td class="text-center">75.4</td>
+                    <td class="text-center">71.8</td>
+                    <td class="text-center">63.0</td>
+                    <td class="text-center">78.19</td>
                   </tr>
                   <tr>
-                    <td>Contributors</td>
-                    <td class="text-center">13.0%</td>
-                    <td class="text-center">12.1%</td>
-                    <td class="text-center">n/a</td>
+                    <td>L + C (40k) with cond-styleGAN labels</td>
+                    <td class="text-center">93.0</td>
+                    <td class="text-center">81.6</td>
+                    <td class="text-center">81.0</td>
+                    <td class="text-center">62.2</td>
+                    <td class="text-center">82.30</td>
                   </tr>
                   <tr class="bg-color-light-gray">
-                    <td>Observers</td>
-                    <td class="text-center">41.6%</td>
-                    <td class="text-center">n/a</td>
-                    <td class="text-center">27.9%</td>
+                    <td>L + C (400k) with cond-styleGAN labels</td>
+                    <td class="text-center">91.0</td>
+                    <td class="text-center">83.0</td>
+                    <td class="text-center">84.0</td>
+                    <td class="text-center">59.0</td>
+                    <td class="text-center">82.24</td>
                   </tr>
-                </tbody>
-                <tfoot>
                   <tr>
-                    <td>Size (N)</td>
-                    <td class="text-center">2,237</td>
-                    <td class="text-center">8,112</td>
-                    <td class="text-center">79,447</td>
+                    <td>L + C (40k) with accurate labels</td>
+                    <td class="text-center">93.8</td>
+                    <td class="text-center">84.4</td>
+                    <td class="text-center">81.3</td>
+                    <td class="text-center">69.9</td>
+                    <td class="text-center">84.39</td>
                   </tr>
-                </tfoot>
+                  <tr class="bg-color-light-gray">
+                    <td>L + C (400k) with accurate labels</td>
+                    <td class="text-center">88.8</td>
+                    <td class="text-center"><b>90.3</b></td>
+                    <td class="text-center">91.8</td>
+                    <td class="text-center"><b>78.0</b></td>
+                    <td class="text-center">88.24</td>
+                  </tr>
+                  <tr>
+                    <td>Fairface (84k)</td>
+                    <td class="text-center"><b>90.7</b></td>
+                    <td class="text-center">88.7</td>
+                    <td class="text-center"><b>92.7</b></td>
+                    <td class="text-center">77.4</td>
+                    <td class="text-center"><b>88.85</b></td>
+                  </tr>
               </table>
+              <p class="text text-center graph-title"><font size = 2>
+              Table 1. Top-1 Accuracy for ethnicity classification. L represents randomly selected imbalanced training datatset.<br> 
+              M represents balanced synthetic dataset generated by image style minxture. <br>
+              C reprenstes balanced synthetic dataset generated by conditional-StyleGAN.
+              </font>
+            </p>
             </div>
-            <p class="text">
-              to do
+            <p class="text"><font size=4>
+              The results are shown in Table 1. Compared with the balanced Fairface dataset, the average accuracy of the model trained on imbalanced <b>L</b> decreases from 88.85 to 80.29. At the same time, the accuracy bias of different classes appears obviously, where the accuracy of the majority class is much higher than minority classes.
+            </font>
+            </p>
+            <p class="text"><font size=4>
+              For the image style mixture method, although the visualization is realistic, the diversity of generated images is limited since we start with a small imbalanced dataset. It's hard to create novel low-level attributes, such as facial expression and facial texture. So the model overfits the training data quickly.
+            </font>
+            </p>
+            <p class="text"><font size=4>
+              For the Conditional-StyleGAN generation, we found that the label inserted into the conditional-StyleGAN isn't reliable enough so the performance improvement is limited. The accuracy of the model surpasses the model trained on <b>L</b> by around 4% but is still about 4% away from the one trained on Fairface. If we query an Oracle or use human-labeling to get the ground-truth labels, we can achieve competitive performance with the model trained on the whole Fairface dataset.
+            </font>
+            </p>
+            <p class="text"><font size=4>
+              In a nutshell, the results listed in Table 1 show that our method performs favorably against the model trained on all Fairface data, confirming the proposed method is effective and efficient to reduce model bias.
+            </font>
             </p>
           </div>
         </div>
         <!--End Text with Centered Image and Table-->
-
+        
+        <div class="flex-row">
+              <div class="flex-item flex-column">
+                <h2 class="add-top-margin">References</h2>
+                  <ol class="publication C-list">
+                  <li>
+                    <p class="text-small-margin">
+                      Karkkainen, K., & Joo, J. . Fairface: Face attribute dataset for balanced race, gender, and age for bias measurement and mitigation. In WACV 2021.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+    
       </div>
     </div>
   </div>

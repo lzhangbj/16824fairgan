@@ -29,27 +29,30 @@
         <!--Start Text with Images and Image buttons-->
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Bias In the World</h2>
+            <h2 class="add-top-margin">Bias In the Real World</h2>
             <hr>
-            <p class="text">
-                Bias is everywhere in the world, therefore is also exhibited in human-collected datasets.
+            <p class="text"><font size=4>
+              There are some data bias issues around us. The best example of recognition bias in the United States could be racism. People discuss US police’s prejudice to black people using this Latte Joke. Another example, which is closely related to us, is the hiring algorithm bias in
+Amazon. Since the algorithm is based on past resumes recorded in the system, the algorithm tends to favor men over women. This is also a tragedy for men because we will have a smaller chance of dating.
+              </font>
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/latte.jpg">
+            <p class="image-caption"><font size=2>Figure 1. A latte a day keeps cops away! [1]</font></p>
           </div>
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/amazon.jpg">
+            <p class="image-caption"><font size=2>Figure 2. Amazon’s hiring algorithm against women [2]</font></p>
           </div>
         </div>
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <p class="text">
-              text to write
+            <p class="text"><font size=4>
+              Bias is everywhere in the world, therefore is also exhibited in human-collected datasets.Generally, there are two sources of model bias. First is non-uniform data distribution, which means the number of samples among classes is not equal in the training dataset. It will lead the model to predict the majority class more often and the accuracy of minority classes will decrease. And the second one is a fake correlation. The classifier may learn the fake correlation between attributes because of the training data. For example, people often wear both hats and sunglasses outside and take them off inside in the real world. A hat classifier may rely on the presence of glasses owing to the training data. Consequently, the classifier may fail to recognize the target attribute in the absence of some unrelated attributes.
+              </font>
             </p>
           </div>
         </div>
@@ -59,29 +62,53 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">The Power of Generative Adversarial Network</h2>
             <hr>
-            <p class="text">
-                Generative Adversarial Network, as known as GAN, is powerful in creating images.
+            <p class="text"><font size=4>
+                Generative Adversarial Network, as known as GAN, is powerful in creating images. Nowadays, The resolution and quality of images produced by GAN are improving rapidly. The current state-of-the-art method for high-resolution image synthesis is StyleGAN [3]. Since its unconventional generator architecture, StyleGAN can disentangle low-level features, such as head pose, in its latent space. And it allows us to modify the generated images with controllablity.
+              </font>
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
-          </div>
-          <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-1000" src="imgs/GAN.jpeg">
+            <p class="image-caption"><font size=2>Figure 3. Style-Mixing with real images using StyleGAN2 [4]</font></p>
           </div>
         </div>
         <div class="flex-row">
           <div class="flex-item flex-column">
             <p class="text">
-              text to write
+              Recently, people leverage GANs and related methods to estimate the sensitivity of different attributes to the trained model and augment datasets. With the powerful GAN model, ideally, we can generate a balanced synthetic dataset to mitigate the bias in existing datasets.
             </p>
           </div>
         </div>
         <!--End Text with Images and Image buttons-->
+        <div class="flex-row">
+          <div class="flex-item flex-column">
+            <h2 class="add-top-margin">References</h2>
+              <ol class="publication C-list">
+              <li>
+                <p class="text-small-margin">
+                  Reddit: https://www.reddit.com/r/blackpeoplegifs/comments/ilubvy/a_latte_a_day_keeps_the_cops_away/
+                </p>
+              </li>
+              <li>
+                <p class="text-small-margin">
+                  Towards data science: https://towardsdatascience.com/real-life-examples-of-discriminating-artificial-intelligence-cae395a90070
+                </p>
+              </li>
+                <li>
+                <p class="text-small-margin">
+                  Karras, Tero, Samuli Laine, and Timo Aila. "A style-based generator architecture for generative adversarial networks." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2019.
+                </p>
+              </li>
+                <li>
+                <p class="text-small-margin">
+                  Karras, Tero, et al. "Analyzing and improving the image quality of stylegan." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2020.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </div>
   </div>

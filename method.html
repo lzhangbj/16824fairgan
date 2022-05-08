@@ -20,8 +20,8 @@
     }
   </style>
 </head>
-
 <body>
+
   <div class="menu-container"></div>
   <div class="content-container">
     <div class="content">
@@ -58,27 +58,27 @@
         <!--Start Text with Images and Image buttons-->
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <h2 class="add-top-margin">Data Mixing In the Latent Space</h2>
+            <h2 class="add-top-margin">Style Mixing In the Latent Space</h2>
             <hr>
             <p class="text">
-                to do
+                Low-level attributes are disentangled in the StyleGAN latent space. Specifically, different channels in latent space w roughly control different attributes such as head pose and facial texture. And the generator can generate diverse synthetic images according to different latent codes. One way to generate diverse synthetic images is to mix the image style of two images by mixing their latent codes. For each image pair, we can first project them to the latent space and then get a mixed latent code accordingly.
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/style_mixing_1.jpg">
+            <p class="image-caption">Image style-mixture by latent code channel replacement.</p>
           </div>
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/style_mixing_2.jpg">
+            <p class="image-caption">Image style-mixture by latent code channel replacement.</p>
           </div>
         </div>
         <div class="flex-row">
           <div class="flex-item flex-column">
             <p class="text">
-              text to write
+              As shown in the figures, the first and the third column are selected image pairs and we use the last 11 dimensions of the first image’s latent code and the first 3 dimensions of the third one. In this way, we can generate a fake image with a mixed image style. Then we assign the same label with the first image to the generated image. The synthetic images are visually good. It keeps the ethnicity of the first image and changes some race-unrelated attributes according to the third image.
             </p>
           </div>
         </div>
@@ -113,7 +113,7 @@
           </div>
         </div>
         <!--End Text with Images and Image buttons-->
-
+    
       </div>
     </div>
   </div>
