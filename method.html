@@ -60,25 +60,23 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Style Mixing In the Latent Space</h2>
             <hr>
-            <p class="text">
+            <p class="text"><font size=4>
                 Low-level attributes are disentangled in the StyleGAN latent space. Specifically, different channels in latent space w roughly control different attributes such as head pose and facial texture. And the generator can generate diverse synthetic images according to different latent codes. One way to generate diverse synthetic images is to mix the image style of two images by mixing their latent codes. For each image pair, we can first project them to the latent space and then get a mixed latent code accordingly.
+                </font>
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="imgs/style_mixing_1.jpg">
-            <p class="image-caption">Image style-mixture by latent code channel replacement.</p>
-          </div>
-          <div class="flex-item flex-column">
-            <img class="image max-width-400" src="imgs/style_mixing_2.jpg">
-            <p class="image-caption">Image style-mixture by latent code channel replacement.</p>
+            <img class="image max-width-800" src="imgs/style_mixing.png">
+            <p class="image-caption"><font size =2>Figure 2. Example of image style-mixture by latent code channel replacement. The first and the third column are selected image pairs and the middle one is generated image with mixed latent code.</font></p>
           </div>
         </div>
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <p class="text">
+            <p class="text"><font size=4>
               As shown in the figures, the first and the third column are selected image pairs and we use the last 11 dimensions of the first image’s latent code and the first 3 dimensions of the third one. In this way, we can generate a fake image with a mixed image style. Then we assign the same label with the first image to the generated image. The synthetic images are visually good. It keeps the ethnicity of the first image and changes some race-unrelated attributes according to the third image.
+              </font>
             </p>
           </div>
         </div>
@@ -90,8 +88,9 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Conditional-StyleGAN based Dataset Augmentation</h2>
             <hr>
-            <p class="text">
-                to do
+            <p class="text"><font size=4>
+                Because race is a high-level attribute and it isn’t disentangled in StyleGAN latent space. We cannot directly sample in the original StyleGAN latent space to generate a race-balanced data pool. Therefore, we modify the StyleGAN architecture and insert the label information to train a Conditional-StyleGAN. The brief architecture is shown in Figure 3. In this way, the latent codes are naturally clustered based on race information. Then we can generate a large amount of fake but diverse images with the same noise vector z but different races/labels, where we can generate a balanced training data pool for all classes. Ideally, we even do not need the Oracle or human labeling as the Conditional-StyleGAN provides samples with labels.
+                </font>
             </p>
           </div>
         </div>
