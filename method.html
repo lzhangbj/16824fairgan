@@ -31,29 +31,36 @@
           <div class="flex-item flex-column">
             <h2 class="add-top-margin">Preliminary: StyleGAN</h2>
             <hr>
-            <p class="text">
-                to do
+            <p class="text"><font size=4>
+                The "Style" in StyleGAN[1] means low-level attributes of objects, such as head pose and facial expression in the human face dataset. Generally, StyleGAN uses random noise with a uniform or Gaussian distribution as input and generates high-resolution and realistic synthetic images. The StyleGAN is mainly composed of two parts, which are the Mapping network and the Synthesis network. The brief architecture of StyleGAN is shown in Figure 2.
+              </font>
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/stylegan_face.jpeg">
+            <p class="image-caption"><font size=2>Figure 1. Synthetic images generated from radnom noise.</font></p>
           </div>
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-400" src="imgs/stylegan.png">
+            <p class="image-caption"><font size=2>Figure 2. The brief architecture of StyleGAN.</font></p>
           </div>
         </div>
         <div class="flex-row">
           <div class="flex-item flex-column">
-            <p class="text">
-              text to write
+            <p class="text"><font size=4>
+              <b>Mapping Network</b> The mapping network maps the random noise z to the intermediate latent space W. The goal of the mapping network is to disentangle different attributes. Besides, in the real world, the distribution of different attributes does not necessarily obey a uniform or normal distribution. So we need to map random vector z to another space to simulate the distribution of attributes. After that, we can modify the latent code w to change the attributes of the synthetic faces.
+              </font>
+            </p>
+            <p class="text"><font size=4>
+              <b>Synthesis Network</b> The synthesis network generates fake images according to the latent code w. The synthesis network uses affined latent code w and noise as inputs, where the style have global effects (changing pose, identity, etc.), the noise affects only inconsequential stochastic variation (differently combed hair, beard, etc.). As shown in Figure 2, "A" stands for a learned affine transform and "B" applies learned per-channel scaling factor to the noise input.
+              </font>
             </p>
           </div>
         </div>
         <!--End Text with Images and Image buttons-->
+
 
         <!--Start Text with Images and Image buttons-->
         <div class="flex-row">
@@ -61,7 +68,7 @@
             <h2 class="add-top-margin">Style Mixing In the Latent Space</h2>
             <hr>
             <p class="text"><font size=4>
-                Low-level attributes are disentangled in the StyleGAN latent space. Specifically, different channels in latent space w roughly control different attributes such as head pose and facial texture. And the generator can generate diverse synthetic images according to different latent codes. One way to generate diverse synthetic images is to mix the image style of two images by mixing their latent codes. For each image pair, we can first project them to the latent space and then get a mixed latent code accordingly.
+                Low-level attributes are disentangled in the StyleGAN latent space. Specifically, different channels in latent space w roughly control different attributes such as head pose and facial texture [2]. And the generator can generate diverse synthetic images according to different latent codes. One way to generate diverse synthetic images is to mix the image style of two images by mixing their latent codes. For each image pair, we can first project them to the latent space and then get a mixed latent code accordingly.
                 </font>
             </p>
           </div>
@@ -69,7 +76,7 @@
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
             <img class="image max-width-800" src="imgs/style_mixing.png">
-            <p class="image-caption"><font size =2>Figure 2. Example of image style-mixture by latent code channel replacement. The first and the third column are selected image pairs and the middle one is generated image with mixed latent code.</font></p>
+            <p class="image-caption"><font size =2>Figure 3. Example of image style-mixture by latent code channel replacement. The first and the third column are selected image pairs and the middle one is generated image with mixed latent code.</font></p>
           </div>
         </div>
         <div class="flex-row">
@@ -89,29 +96,36 @@
             <h2 class="add-top-margin">Conditional-StyleGAN based Dataset Augmentation</h2>
             <hr>
             <p class="text"><font size=4>
-                Because race is a high-level attribute and it isn’t disentangled in StyleGAN latent space. We cannot directly sample in the original StyleGAN latent space to generate a race-balanced data pool. Therefore, we modify the StyleGAN architecture and insert the label information to train a Conditional-StyleGAN. The brief architecture is shown in Figure 3. In this way, the latent codes are naturally clustered based on race information. Then we can generate a large amount of fake but diverse images with the same noise vector z but different races/labels, where we can generate a balanced training data pool for all classes. Ideally, we even do not need the Oracle or human labeling as the Conditional-StyleGAN provides samples with labels.
+                Because race is a high-level attribute and it isn’t disentangled in StyleGAN latent space. We cannot directly sample in the original StyleGAN latent space to generate a race-balanced data pool. Therefore, we modify the StyleGAN architecture and insert the label information to train a Conditional-StyleGAN. In this way, the latent codes are naturally clustered based on race information. Then we can generate a large amount of fake but diverse images with the same noise vector z but different races/labels, where we can generate a balanced training data pool for all classes. Ideally, we even do not need the Oracle or human labeling as the Conditional-StyleGAN provides samples with labels.
                 </font>
             </p>
           </div>
         </div>
         <div class="flex-row-space-between">
           <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
-          </div>
-          <div class="flex-item flex-column">
-            <img class="image max-width-400" src="img/dummay-img.png">
-            <p class="image-caption">Image Caption</p>
+            <img class="image max-width-800" src="imgs/cgan.png">
+            <p class="image-caption"><font size=2>Figure 4. Images generated by Conditional-StyleGAN with the same vector z and different labels</font></p>
           </div>
         </div>
-        <div class="flex-row">
-          <div class="flex-item flex-column">
-            <p class="text">
-              text to write
-            </p>
-          </div>
         </div>
         <!--End Text with Images and Image buttons-->
+        <div class="flex-row">
+              <div class="flex-item flex-column">
+                <h2 class="add-top-margin">References</h2>
+                  <ol class="publication C-list">
+                    <li>
+                    <p class="text-small-margin">
+                      Karras, Tero, Samuli Laine, and Timo Aila. "A style-based generator architecture for generative adversarial networks." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2019.
+                    </p>
+                  </li>
+                    <li>
+                    <p class="text-small-margin">
+                      Karras, Tero, et al. "Analyzing and improving the image quality of stylegan." Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2020.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
     
       </div>
     </div>
